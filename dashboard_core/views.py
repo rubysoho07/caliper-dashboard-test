@@ -5,6 +5,9 @@ from pymongo import MongoClient
 
 # Create your views here.
 def get_action_view(request):
+    """
+    Count Caliper events per Action.
+    """
     client = MongoClient('mongodb://localhost:27017')
     db = client['test']
     event_collection = db['mongoEvent']
@@ -30,6 +33,9 @@ def get_action_view(request):
 
 
 def get_event_view(request):
+    """
+    Count Caliper events per Event type.
+    """
     client = MongoClient('mongodb://localhost:27017')
     db = client['test']
     event_collection = db['mongoEvent']
