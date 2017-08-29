@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from pymongo import MongoClient
+from event_dashboard.settings import MONGODB_COLLECTION, MONGODB_DB, MONGODB_URL
 
 
 # Create your views here.
@@ -8,9 +9,9 @@ def get_action_view(request):
     """
     Count Caliper events per Action.
     """
-    client = MongoClient('mongodb://localhost:27017')
-    db = client['test']
-    event_collection = db['mongoEvent']
+    client = MongoClient(MONGODB_URL)
+    db = client[MONGODB_DB]
+    event_collection = db[MONGODB_COLLECTION]
 
     aggregated_count = event_collection.aggregate([{"$group": {"_id": "$event.action", "count": {"$sum": 1}}}])
     aggregated_action = []
@@ -36,9 +37,9 @@ def get_event_view(request):
     """
     Count Caliper events per Event type.
     """
-    client = MongoClient('mongodb://localhost:27017')
-    db = client['test']
-    event_collection = db['mongoEvent']
+    client = MongoClient(MONGODB_URL)
+    db = client[MONGODB_DB]
+    event_collection = db[MONGODB_COLLECTION]
 
     aggregated_count = event_collection.aggregate([{"$group": {"_id": "$event.type", "count": {"$sum": 1}}}])
     aggregated_event = []

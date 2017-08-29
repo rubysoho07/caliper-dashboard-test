@@ -121,3 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MONGODB_URL = 'mongodb://localhost:27017'
+MONGODB_DB = 'test'
+MONGODB_COLLECTION = 'mongoEvent'

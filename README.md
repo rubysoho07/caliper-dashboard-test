@@ -4,8 +4,8 @@ Tester dashboard website for dashboard of IMS Caliper data. This project uses Dj
 
 ## Prerequisites
 
-* Python 2.x
-* Caliper datastore operated with OpenLRW ([GitHub](https://github.com/Apereo-Learning-Analytics-Initiative/OpenLRW))
+* Python 2.x (This project uses django-mongodb-engine now, but it doesn't work on Python 3.x and latest version of Django.)
+* Caliper datastore (e.g. OpenLRW ([GitHub](https://github.com/Apereo-Learning-Analytics-Initiative/OpenLRW)))
 * MongoDB
 
 ## How to Build the Environment for Development
@@ -27,7 +27,12 @@ $ pip install -r requirements.txt
 
 ### Configuring and Running Server
 
-* Check the configuration for database and collection where Caliper data stored 
+* Check the configuration for database and collection where Caliper data stored (`event_dashboard/settings.py`) 
+```python
+MONGODB_URL = 'mongodb://localhost:27017'
+MONGODB_DB = 'test'
+MONGODB_COLLECTION = 'mongoEvent'
+```
 * Run Django server
 ```
 $ python manage.py runserver [PORT_NUM]
