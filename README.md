@@ -33,6 +33,7 @@ MONGODB_URL = 'mongodb://localhost:27017'
 MONGODB_DB = 'test'
 MONGODB_COLLECTION = 'mongoEvent'
 ```
+
 * Run Django server
 ```
 $ python manage.py runserver [PORT_NUM]
